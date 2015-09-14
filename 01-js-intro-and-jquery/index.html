@@ -14,7 +14,7 @@
 	
 	<script> //fadeIn
 	$(window).load(function () {
-		$(".hiddenSection").fadeIn(3000, function() {$('#alias').focus();});
+		$(".hiddenSection").fadeIn(3000, function() {$('.alias').focus();});
 	});
 	</script>
 	
@@ -30,9 +30,12 @@
 */
 		$(document).ready(function(){
 		    $("button").click(function(){
-		        
 		        $.get("http://bootcamp.aws.af.cm/welcome/"+ $(".alias").val(), function(data, status){
-		            alert("Textarea introducido:"+ $(".alias").val()+ "\nData(respuesta del servidor): " + data.response + "\nStatus: " + status);
+		            if (status == "success") {$(".hiddenSection").html(data.response);}
+		            else{
+		            	$(".hiddenSection").addClass("error");
+		            	$(".hiddenSection").html("An error has ocurred!!\nStatus: "+ status + "\nServer answer: " + data.response);
+		            };
 		        });
 		    });
 		});
@@ -43,12 +46,12 @@
 <body>
 	
 	<section class="hiddenSection">
-		<h1>hello World!</h1>
+		<h1>HELLO WORLD!</h1>
 		<p class="response-server"></p>
 	</section>
 	
 	<br>
-	<textarea class="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" >Chapu</textarea>
+	<textarea class="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" ></textarea>
 	
 	<br>
 	<button>go to server!</button>

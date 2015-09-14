@@ -5,3 +5,8 @@ section {
 section.hiddenSection {
 	display: none;
 }
+
+.error {
+	color:red;
+	font-weight: bold;
+}
