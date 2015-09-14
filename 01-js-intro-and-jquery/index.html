@@ -20,12 +20,21 @@
 	
 	
 	<script>
-		$(document).ready(function(){
+		/* $(document).ready(function(){
 			$("button").click(function(){
-				$.post("http://bootcamp.aws.af.cm/welcome/yourname", {"response":"Welcome yourname!"}, function(data.response){
+				$.post("http://bootcamp.aws.af.cm/welcome/"+alias, {"response":"Welcome yourname!"}, function(data.response){
 					$(".response-server").html(data.response);
 				});
 			});
+		});
+*/
+		$(document).ready(function(){
+		    $("button").click(function(){
+		        
+		        $.get("http://bootcamp.aws.af.cm/welcome/"+ $("#alias"), function(data, status){
+		            alert("Textarea introducido:"+ $("#alias") + "\nData(respuesta del servidor): " + data.response + "\nStatus: " + status);
+		        });
+		    });
 		});
 	</script>
 
@@ -39,7 +48,8 @@
 	</section>
 	
 	<br>
-	<textarea id="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!"></textarea>
+	<textarea id="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" >Chapu</textarea>
+	
 	<br>
 	<button>go to server!</button>
 	
