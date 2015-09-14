@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+	<meta name="description" content="Open your IDE, create a new file text, save it as index.html. Add the correct doctype, and a few tags with random content. Add jQuery's latest version.">
+	<meta name="keywords" content="video,image,sound">
+	<meta name="author" content="Cristian Molinero">
+	<meta name="contact" content="molinero.cristian.d@gmail.com">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>Jquery practice - Topic-01</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(window).load(function () {
+			 $(".hiddenSection").fadeIn(3000, function() {$('#alias').focus();});
+		});
+	</script>
+	
+<!--
+	<script>
+	
+	//Attach an event to the created button which calls a function that gets a response from http://bootcamp.aws.af.cm/welcome/yourname
+	$(document).ready(function(){
+	    $("button").click(function(){
+	        $.get("http://bootcamp.aws.af.cm/welcome/yourname", function(data, status){
+	            alert("Data: " + data + "\nStatus: " + status);
+	        });
+	    });
+	});
+	</script>
+	
+	-->
+	
+	<script>
+	$(document).ready(function(){
+	    $("button").click(function(){
+	        $.post("http://bootcamp.aws.af.cm/welcome/yourname", {"yourname" : "#alias"},
+	        function(data,status){
+	            $("#h2data").html('data'); //ver de agregarle al data  + "" + status
+	             //document.getElementById('h2data').innerHTML = data;
+	             /*
+	             $("#regTitle").html("Hello World");
+	             document.all.regTitle.innerHTML = 'Hello World'; */
+	            
+	        });
+	    });
+	});
+	</script>
+
+
+</head>
+<body>
+	<section class="hiddenSection">
+		<h1>hello world!</h1>
+		<h2 class="h2data">
+		</h2>
+	</section>
+	<br>
+	<br>
+	<textarea id="alias" cols="50" rows="4" placeholder="Put your beautiful name here!!"></textarea>
+	<button>go to server!</button>
+
+	
+</body>
+</html>
