@@ -31,8 +31,8 @@
 		$(document).ready(function(){
 		    $("button").click(function(){
 		        
-		        $.get("http://bootcamp.aws.af.cm/welcome/"+ $("#alias"), function(data, status){
-		            alert("Textarea introducido:"+ $("#alias") + "\nData(respuesta del servidor): " + data.response + "\nStatus: " + status);
+		        $.get("http://bootcamp.aws.af.cm/welcome/"+ $(".alias").val(), function(data, status){
+		            alert("Textarea introducido:"+ $(".alias").val()+ "\nData(respuesta del servidor): " + data.response + "\nStatus: " + status);
 		        });
 		    });
 		});
@@ -48,7 +48,7 @@
 	</section>
 	
 	<br>
-	<textarea id="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" >Chapu</textarea>
+	<textarea class="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" >Chapu</textarea>
 	
 	<br>
 	<button>go to server!</button>
