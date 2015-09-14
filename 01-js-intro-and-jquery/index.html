@@ -11,56 +11,37 @@
 
 	<title>Jquery practice - Topic-01</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<script> //fadeIn
+	$(window).load(function () {
+		$(".hiddenSection").fadeIn(3000, function() {$('#alias').focus();});
+	});
+	</script>
+	
+	
 	<script>
-		$(window).load(function () {
-			 $(".hiddenSection").fadeIn(3000, function() {$('#alias').focus();});
+		$(document).ready(function(){
+			$("button").click(function(){
+				$.post("http://bootcamp.aws.af.cm/welcome/yourname", {"response":"Welcome yourname!"}, function(data.response){
+					$(".response-server").html(data.response);
+				});
+			});
 		});
-	</script>
-	
-<!--
-	<script>
-	
-	//Attach an event to the created button which calls a function that gets a response from http://bootcamp.aws.af.cm/welcome/yourname
-	$(document).ready(function(){
-	    $("button").click(function(){
-	        $.get("http://bootcamp.aws.af.cm/welcome/yourname", function(data, status){
-	            alert("Data: " + data + "\nStatus: " + status);
-	        });
-	    });
-	});
-	</script>
-	
-	-->
-	
-	<script>
-	$(document).ready(function(){
-	    $("button").click(function(){
-	        $.post("http://bootcamp.aws.af.cm/welcome/yourname", {"yourname" : "#alias"},
-	        function(data,status){
-	            $("#h2data").html('data'); //ver de agregarle al data  + "" + status
-	             //document.getElementById('h2data').innerHTML = data;
-	             /*
-	             $("#regTitle").html("Hello World");
-	             document.all.regTitle.innerHTML = 'Hello World'; */
-	            
-	        });
-	    });
-	});
 	</script>
 
 
 </head>
 <body>
+	
 	<section class="hiddenSection">
 		<h1>hello world!</h1>
-		<h2 class="h2data">
-		</h2>
+		<p class="response-server"></p>
 	</section>
+	
 	<br>
+	<textarea id="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!"></textarea>
 	<br>
-	<textarea id="alias" cols="50" rows="4" placeholder="Put your beautiful name here!!"></textarea>
 	<button>go to server!</button>
-
 	
 </body>
 </html>
