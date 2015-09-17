@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+	<meta name="description" content="Open your IDE, create a new file text, save it as index.html. Add the correct doctype, and a few tags with random content. Add jQuery's latest version.">
+	<meta name="keywords" content="video,image,sound">
+	<meta name="author" content="Cristian Molinero">
+	<meta name="contact" content="molinero.cristian.d@gmail.com">
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>Jquery practice - Topic-01</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<script> //fadeIn
+	$(window).load(function () {
+		$(".hiddenSection").fadeIn(2000, function() {$('.alias').focus();});
+	});
+	</script>
+	
+	
+	<script>
+		$(document).ready(function(){
+		    $("button").click(function(){
+		        $.get("http://bootcamp.aws.af.cm/welcome/"+ $(".alias").val(), function(data, status){
+		            if (status == "success") {
+		            		console.log("respuesta del servidor: " + data.response);
+		            	var subString = data.response.substr(8);
+							console.log("data.response.substr: " + data.response.substr(8,-1));
+							console.log("substr: " + subString );
+						var sliced = data.response.slice(0,8);
+							console.log(subString, sliced);
+						$(".hiddenSection").html(sliced + "<strong>" + subString + "</strong>" + "!");
+		            }
+		            else{
+		            	$(".hiddenSection").addClass("error");
+		            	$(".hiddenSection").html("An error has ocurred!!"+ "<br>"+"Status: "+ status + "<br>"+ "Server answer: " + data.response);
+		            };
+		        });
+		    });
+		});
+	</script>
+
+ <!-- Take some free air and then create a function to highlight your name in the server response content. Call it right after setting the response inside the div.
+ 
+ 
+	var subString = data.response.substr(8,-1);
+	var sliced = data.response.slice (8,-1);
+ 	$(".hiddenSection").html(sliced + "<strong>" + subString + "</strong>" + "!");
+
+ 	<span class="highlightme">test</span>
+
+ 	in 
+ 	 -->
+
+
+
+
+</head>
+<body>
+	
+	<section class="hiddenSection">
+		<h1>HELLO WORLD!</h1>
+		<p class="response-server"></p>
+	</section>
+	
+	<br>
+	<textarea class="alias" cols="50" rows="1" placeholder="Put your beautiful name here!!" ></textarea>
+	
+	<br>
+	<button>go to server!</button>
+	
+</body>
+</html>
