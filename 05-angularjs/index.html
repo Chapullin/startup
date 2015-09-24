@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularapp">
+<head>
+	<meta charset="UTF-8">
+	<title>Topic 05 - Angular JS</title>
+	<script src="node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<h1>Angular</h1>
+	<section ng-controller="moviesCtrl">
+			<h2>Movies</h2>
+			<ul ng-repeat="movie in movies">
+				<li>
+					<h3>{{movie.name}}</h3>
+					
+					<p>{{movie.description}}</p>
+				</li>
+			</ul>
+	</section>
+	
+	<script src="js/movies.js"></script>
+	<script src="js/myApp.js"></script>
+</body>
+</html>
