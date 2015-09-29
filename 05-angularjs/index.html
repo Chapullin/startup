@@ -3,23 +3,64 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Topic 05 - Angular JS</title>
-	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.0/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.0/angular-animate.js"></script>
+	
 </head>
 <body>
 
 	<h1>Angular</h1>
-	<section ng-controller="moviesCtrl">
-			<h2>Movies</h2>
-			<ul ng-repeat="movie in movies">
-				<li>
-					<h3>{{movie.name}}</h3>
-					
-					<p>{{movie.description}}</p>
-				</li>
-			</ul>
-	</section>
-	
+	<section ng-controller="moviesCtrl">  <!-- <div ng-controller="MainCtrl as main"> esto era del ej de la web-->
+
+		Choose your movie to see de details:
+		<a href="Book/Moby">Moby</a> |
+		<a href="Book/Moby/ch/1">Moby: Ch1</a> |
+		<a href="Book/Gatsby">Gatsby</a> |
+		<a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+		<a href="Book/Scarlet">Scarlet Letter</a><br/>
+
+		<div class="view-animate-container">
+			<div ng-view class="view-animate"></div>
+		</div>
+		
+
+
+		<h2>Movies</h2>
+		<ul>
+			<li ng-repeat="movie in movies">
+				{{movie.name}}
+				<a href="#/movies/{{movie.name}}"><img ng-src="movie/{{movie.imageURL}}" alt="Image {{movie.name}}">
+					<br>
+					<p>{{movie.name}}</p>
+				</a>
+			</li>
+		</ul>
+
+		<ul>
+			<li ng-repeat="movie in movies">
+				{{movie.name}}
+			</li>
+		</ul>
+
+		<!-- <ul class="phones">
+		        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+		          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="movies/{{phone.imageUrl}}"></a>
+		          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+		          <p>{{phone.snippet}}</p>
+		        </li>
+		      </ul>
+		
+		
+			<pre>$location.path() = {{moviesCtrl.$location.path()}}</pre>
+			<pre>$route.current.templateUrl = {{moviesCtrl.$route.current.templateUrl}}</pre>
+			<pre>$route.current.params = {{moviesCtrl.$route.current.params}}</pre>
+			<pre>$routeParams = {{moviesCtrl.$routeParams}}</pre>
+			</section> -->
+
+
 	<script src="js/movies.js"></script>
 	<script src="js/myApp.js"></script>
 </body>
 </html>
+
