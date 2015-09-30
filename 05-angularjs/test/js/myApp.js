@@ -42,7 +42,7 @@
   }])
 
   .controller('DetailsCtrl', function DetailsCtrl ($scope, $routeParams) {
-    $scope.movie = $scope.movies[$routeParams.name];
-  })
+    $scope.movie = movies[$routeParams.name];
+  }) 
   ;
 })(window.angular);

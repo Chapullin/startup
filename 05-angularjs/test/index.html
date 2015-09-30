@@ -19,7 +19,7 @@
 <body>
   <div ng-controller="MainCtrl">
   Choose:
-  <a href="movies/{{movie.name}}">details</a> |
+  <a href="movies/index.html" >index</a> |
   <a href="Book/Moby'">Moby</a> |
   <a href="Book/Moby/ch/1">Moby: Ch1</a> |
   <a href="Book/Gatsby">Gatsby</a> |
@@ -29,6 +29,17 @@
   <div class="view-animate-container">
     <div ng-view class="view-animate"></div>
   </div>
+
+  <ul>
+  <li ng-repeat="movie in movies">
+    <a href="#/movies/{{movie.name}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}">
+      <br>
+      <p>{{movie.name}}</p>
+    </a>
+    <br>
+    <a href="#/info/{{movie.name}}">+ details </a> | <a href="#/remove/{{movie.name}}">remove</a>  |  <a href="#/edit/{{movie.name}}">edit</a>
+  </li>
+</ul>
   <hr />
 
   <pre>$location.path() = {{main.$location.path()}}</pre>
