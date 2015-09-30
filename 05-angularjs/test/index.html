@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="ngViewExample">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-ngView-directive-production</title>
+  <link href="animations.css" rel="stylesheet" type="text/css">
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-route/angular-route.js"></script>
+  <script src="node_modules/angular-animate/angular-animate.js"></script>
+
+  <script src="js/myApp.js"></script>
+  <script src="js/movies.js"></script>
+  
+
+  <script type="text/javascript">
+    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+  </script>
+</head>
+<body>
+  <div ng-controller="MainCtrl">
+  Choose:
+  <a href="movies/{{movie.name}}">details</a> |
+  <a href="Book/Moby'">Moby</a> |
+  <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+  <a href="Book/Gatsby">Gatsby</a> |
+  <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+  <a href="Book/Scarlet">Scarlet Letter</a><br/>
+
+  <div class="view-animate-container">
+    <div ng-view class="view-animate"></div>
+  </div>
+  <hr />
+
+  <pre>$location.path() = {{main.$location.path()}}</pre>
+  <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}</pre>
+  <pre>$route.current.params = {{main.$route.current.params}}</pre>
+  <pre>$routeParams = {{main.$routeParams}}</pre>
+</div>
+</body>
+</html>

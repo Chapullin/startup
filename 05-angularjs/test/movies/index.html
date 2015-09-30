@@ -1,0 +1,14 @@
+<h2>Movies</h2>
+<ul>
+	<li ng-repeat="movie in movies">
+		<a href="#/movies/{{movie.name}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}">
+			<br>
+			<p>{{movie.name}}</p>
+		</a>
+		<br>
+		<a href="#/info/{{movie.name}}">+ details </a> | <a href="#/remove/{{movie.name}}">remove</a>  |  <a href="#/edit/{{movie.name}}">edit</a>
+	</li>
+</ul>
+<a href="#/add">Add new movie</a>
+</li>
+</ul>
