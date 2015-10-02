@@ -4,22 +4,30 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 	<script type="text/javascript" src="node_modules/angular/angular.js" ></script>
-	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="node_modules/angular-route/angular-route.js" ></script>
+	<script type="text/javascript" src="js/app.js"></script><script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
 	<title>Codeacadamey example</title>
 </head>
 <body>
-     <div ng-controller="VideoclubController">
-       <div ng-repeat="movie in movies">
-        <h1>{{movie.name}} </h1>
-        <h2>{{movie.director}}</h2>
-        <p>{{movie.year}}</p>
-        <p>{{movie.description}}</p>
-        <p>{{movie.duration}}</p>
-        <p>{{movie.country}}</p>
-        <p>{{movie.guion}}</p>
-     </div>
-  </div>
+	<div class="container-flow" ng-controller="VideoclubController">
+		<div ng-view ></div>
 
-
+		<div>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="movie in movies">
+					<h1>{{movie.name}} </h1>
+					<a href="#/movies/{{movie.name}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}" class="pull-right"></a>
+					<a href="#/info/{{movie.name}}">+ details </a> | <a href="#/remove/{{movie.name}}">remove</a>  |  <a href="#/edit/{{movie.name}}">edit</a>
+					<h3>Directed By: {{movie.director}}</h3>
+					<p>({{movie.year}})</p>
+					<p>{{movie.description}}</p>
+					<p>{{movie.duration}}</p>
+					<p>{{movie.country}}</p>
+					<p>{{movie.guion}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

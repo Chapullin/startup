@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <!--Body content-->
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="year">Oldest</option>
+      </select>
+
+      <div>
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="movie in movies | filter: query | orderBy: orderProp">
+          <h1>{{movie.name}} </h1>
+          <a href="#/movies/{{movie.name}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}" class="pull-right"></a>
+          <a href="#/info/{{movie.name}}">+ details </a> | <a href="#/remove/{{movie.name}}">remove</a>  |  <a href="#/edit/{{movie.name}}">edit</a>
+          <h3>Directed By: {{movie.director}}</h3>
+          <p>({{movie.year}})</p>
+          <p>{{movie.description}}</p>
+          <p>{{movie.duration}}</p>
+          <p>{{movie.country}}</p>
+          <p>{{movie.guion}}</p>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+  </div>
+</div>
