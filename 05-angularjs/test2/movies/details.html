@@ -5,3 +5,14 @@
 <p>Duration: {{movie.duration}}</p>
 <p>Country: {{movie.country}}</p>
 <p>Guion: {{movie.guion}}</p>
+<h1>{{movie.name}} </h1>
+          <a href="#/movies/{{movie.id}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}" class="pull-right"></a>
+          <a href="#/movies/{{movie.id}}">+ details </a> | <a href="#/remove/{{movie.id}}">remove</a>  |  <a href="#/edit/{{movie.id}}">edit</a>
+          <h3>Directed By: {{movie.director}}</h3>
+          <p>({{movie.year}})</p>
+          <p>{{movie.description}}</p>
+          <p>{{movie.duration}}</p>
+          <p>{{movie.country}}</p>
+          <p>{{movie.guion}}</p>
+
+esto no sale?

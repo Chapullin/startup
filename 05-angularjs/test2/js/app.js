@@ -76,10 +76,22 @@ app.
 	controller ('MovieListCtrl', function  ($scope) {
 			$scope.movies = movies;
 	}).
-	controller('MovieDetailsCtrl', function  ($scope, $routeParams, movie) {
-		$scope.movie = movie;
-
+	controller('MovieDetailsCtrl', function  ($scope, $routeParams) {
+		
+		$scope.id = $routeParams.id;
+		for (var i = 0; i < movies.length; i++) {
+			if (movies[i].id === $routeParams.id) {
+			$scope.movie = movies[i];
+		}};
+		
+	}).
+	controller('MovieEditCtrl', function  ($scope, $routeParams) {
+		for (var i = 0; i < movies.length; i++) {
+			if (movies[i].id === $routeParams.id) {
+			$scope.movie = movies[i];
+		}};
 	})
+	;
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -91,6 +103,10 @@ app.config(['$routeProvider',
       when('/movies/:id', {
         templateUrl: 'app/partial/movie-detail.html',
         controller: 'MovieDetailsCtrl'
+      }).
+      when('/edit/:id', {
+        templateUrl: 'app/partial/movie-form.html',
+        controller: 'MovieEditCtrl'
       }).
       
       otherwise({

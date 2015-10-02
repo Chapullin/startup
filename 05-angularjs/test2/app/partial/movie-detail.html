@@ -1,7 +1,18 @@
-<h2>Title: {{movie.name}}</h2>
-<p>Year: {{movie.year}}</p>
-<p>Director: {{movie.director}}</p>
-<p>Description: {{movie.description}}</p>
+
+<h1>{{movie.name}} </h1>
+<a href="#/movies/{{movie.id}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}" class="pull-right"></a>
+
+<h3>Directed By: {{movie.director}}</h3>
+<p>({{movie.year}})</p>
+<p>{{movie.description}}</p>
 <p>Duration: {{movie.duration}}</p>
 <p>Country: {{movie.country}}</p>
 <p>Guion: {{movie.guion}}</p>
+<a href="#/edit/{{movie.id}}">
+	<button type="button" class="btn btn-info" ng-click="#/edit/{{movie.id}}">Edit</button>  
+</a>
+<a href="#/remove/{{movie.id}}">
+	<button type="button" class="btn btn-danger" ng-click="#/remove/{{movie.id}}">Remove</button>  
+</a>
+
+

@@ -1,31 +1,33 @@
-<div class="container-fluid">
-  <div class="row">
-    <div>
-      <!--Body content-->
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="year">Oldest</option>
-      </select>
-
+  <div class="container-fluid">
+    <div class="row">
       <div>
-      <ul class="list-group">
-        <li class="list-group-item" ng-repeat="movie in movies | filter: query | orderBy: orderProp">
-          <h1>{{movie.name}} </h1>
-          <a href="#/movies/{{movie.id}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}" class="pull-right"></a>
-          <a href="#/movies/{{movie.id}}">+ details </a> | <a href="#/remove/{{movie.id}}">remove</a>  |  <a href="#/edit/{{movie.id}}">edit</a>
-          <h3>Directed By: {{movie.director}}</h3>
-          <p>({{movie.year}})</p>
-          <p>{{movie.description}}</p>
-          <p>{{movie.duration}}</p>
-          <p>{{movie.country}}</p>
-          <p>{{movie.guion}}</p>
-          {{sadff}}
-        </li>
-      </ul>
-    </div>
+        <!--Body content-->
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="year">Oldest</option>
+        </select>
 
+        <div>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="movie in movies | filter: query | orderBy: orderProp">
+            <h1>{{movie.name}} </h1>
+            <a href="#/movies/{{movie.id}}"><img ng-src="movies/img/{{movie.imageURL}}" alt="Image {{movie.name}}"></a>
+            <br><br>
+            <a href="#/movies/{{movie.id}}">
+            <button type="button" class="btn btn-primary" ng-click="#/movies/{{movie.id}}">+Info</button>  
+            </a>
+            <a href="#/edit/{{movie.id}}">
+            <button type="button" class="btn btn-info" ng-click="#/edit/{{movie.id}}">Edit</button>  
+            </a>
+            <a href="#/remove/{{movie.id}}">
+            <button type="button" class="btn btn-danger" ng-click="#/remove/{{movie.id}}">Remove</button>  
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      </div>
     </div>
   </div>
-</div>
