@@ -2,11 +2,9 @@ var moviescatControllers = angular.module('moviescatControllers', []);
 
 moviescatControllers.controller('MovieListCtrl', ['$scope', '$http',
   function ($scope, $http) { //MovieListCtrl es el controlador dentro del route
-    $http.get('js/movies.json').success(function(data) {
+   // $http.get('js/movies.json').success(function(data) {
       $scope.movies = data;
-    });
-
-    $scope.orderProp = 'year';
+      $scope.orderProp = 'year';
   }]);
 
 moviescatControllers.controller('MovieDetailCtrl', ['$scope', '$routeParams',
